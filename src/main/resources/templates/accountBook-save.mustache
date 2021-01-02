@@ -1,0 +1,22 @@
+{{>layout/header}}
+
+<h1>입금</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form>
+            <div class="form-group">
+                <label for="email">이메일</label>
+                <input type="text" class="form-control" id="email" placeholder="이메일을 입력하세요">
+            </div>
+            <div class="form-group">
+                <label for="balance"> 금액 </label>
+                <input type="number" class="form-control" id="balance" placeholder="금액을 입력하세요">
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">취소</a>
+        <button type="button" class="btn btn-primary" id="btn-save">등록</button>
+    </div>
+</div>
+
+{{>layout/footer}}

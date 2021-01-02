@@ -1,0 +1,41 @@
+{{>layout/header}}
+
+<h1>조회</h1>
+
+<div class="col-md-12">
+    <div class="col-md-4">
+        <form action="/accountBook/lookup" method="get">
+            <div class="lookup">
+                <label for="email">이메일</label>
+                <input type="text" class="form-control" name="email" id="email" placeholder="이메일을 입력하세요">
+            </div>
+        </form>
+        <a href="/" role="button" class="btn btn-secondary">돌아가기</a>
+        <button type="button" class="btn btn-primary" id ="btn-lookup">조회</button>
+    </div>
+</div>
+<br>
+<!-- 목록 출력 영역 -->
+<table class="table table-horizontal table-bordered">
+    <thead class="thead-strong">
+    <tr>
+        <th>이메일</th>
+        <th>일자</th>
+        <th>금액</th>
+        <th>잔액</th>
+    </tr>
+    </thead>
+    <tbody id="tbody">
+    {{#accountBooks}}
+        <tr>
+            <td>{{email}}</td>
+            <td>{{createdDate}}</td>
+            <td>{{money}}</td>
+            <td>{{balance}}</td>
+        </tr>
+    {{/accountBooks}}
+    </tbody>
+</table>
+</div>
+
+{{>layout/footer}}
