@@ -23,6 +23,25 @@ public class User {
     @Column
     private Long balance;
 
+    @Column()
+    private String name;
+
+    @Column
+    private String picture;
+
+    @Enumerated(EnumType.STRING)
+    @Column
+    private Role role;
+
+
+    @Builder
+    public User(String email, Long balance, String name, String picture, Role role ) {
+        this.email = email;
+        this.balance = balance;
+        this.name = name;
+        this.picture = picture;
+        this.role = role;
+    }
 
     @Builder
     public User(String email, Long balance) {
@@ -39,4 +58,16 @@ public class User {
         this.balance = this.balance + money;
         return balance;
     }
+
+    public User update(String name, String picture) {
+        this.name = name;
+        this.picture = picture;
+
+        return this;
+    }
+
+    public String getRoleKey() {
+        return this.role.getKey();
+    }
+
 }

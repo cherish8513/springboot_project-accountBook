@@ -9,6 +9,15 @@ var main = {
             _this.deposit();
         });
 
+        $('#btn-login-withdraw').on('click', function () {
+            _this.login_withdraw();
+        });
+
+        $('#btn-login-deposit').on('click', function () {
+            _this.login_deposit();
+        });
+
+
         $('#btn-withdraw').on('click', function () {
             _this.withdraw();
         });
@@ -59,6 +68,25 @@ var main = {
             });
         },
 
+    login_deposit : function () {
+            var data = {
+                money: $('#money').val()
+            };
+
+            $.ajax({
+                type: 'PUT',
+                url: '/api/login/deposit',
+                dataType: 'json',
+                contentType:'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            }).done(function() {
+                alert('입금이 완료되었습니다.');
+                window.location.href = '/';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
+        },
+
     withdraw : function () {
             var data = {
                 email: $('#email').val(),
@@ -68,6 +96,25 @@ var main = {
             $.ajax({
                 type: 'PUT',
                 url: '/api/withdraw',
+                dataType: 'json',
+                contentType:'application/json; charset=utf-8',
+                data: JSON.stringify(data)
+            }).done(function() {
+                alert('출금이 완료되었습니다.');
+                window.location.href = '/';
+            }).fail(function (error) {
+                alert(JSON.stringify(error));
+            });
+        },
+
+    login_withdraw : function () {
+            var data = {
+                money: $('#money').val()
+            };
+
+            $.ajax({
+                type: 'PUT',
+                url: '/api/login/withdraw',
                 dataType: 'json',
                 contentType:'application/json; charset=utf-8',
                 data: JSON.stringify(data)
